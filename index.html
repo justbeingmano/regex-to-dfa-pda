@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Regex → DFA → PDA</title>
   <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <h2>Regex to DFA & PDA</h2>
+  <header class="Header">
+    <div class="Header-item">
+      <span class="Header-link">Regex → DFA & PDA Converter</span>
+    </div>
+  </header>
 
-  <input id="regexInput" placeholder="Enter Regex (ab)*c">
-  <button onclick="convert()">Convert</button>
+  <div class="container-lg my-4">
 
-  <div id="cy" style="width:800px; height:500px; border:1px solid black;"></div>
+    <div class="Box mb-4">
+      <div class="Box-header">
+        <h3 class="Box-title">Input</h3>
+      </div>
+      <div class="Box-body d-flex">
+        <div class="flex-1">
+          <input id="regexInput" class="form-control" placeholder="Enter Regex (e.g., (ab)*c)">
+        </div>
+        <button class="btn btn-primary" onclick="convert()">Convert</button>
+      </div>
+    </div>
+
+    <div class="Box">
+      <div class="Box-header">
+        <h3 class="Box-title">Visualization</h3>
+      </div>
+      <div class="Box-body p-0" style="padding:0;">
+        <div id="cy"></div>
+      </div>
+    </div>
+
+  </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>
 
 .
