@@ -12,12 +12,12 @@ function convert() {
 
   const regex = document.getElementById("regexInput").value;
 
-  const tokens = tokenize(regex);              // step 1
-  const withConcat = addConcat(tokens);        // step 2
-  const postfix = toPostfix(withConcat);       // step 3
-  const nfa = postfixToNFA(postfix);            // step 4
+  const tokens = tokenize(regex);            
+  const withConcat = addConcat(tokens);       
+  const postfix = toPostfix(withConcat);      
+  const nfa = postfixToNFA(postfix);          
 
-  drawNFA(nfa);                                // step 5
+  drawNFA(nfa);                                
 }
 
 // ===== TOKENIZE =====
@@ -123,7 +123,7 @@ function postfixToNFA(postfix) {
     }
   });
 
-  return stack.pop(); // FINAL NFA → start is HERE ONLY
+  return stack.pop();
 }
 
 // ===== VISUALIZATION =====
@@ -155,21 +155,6 @@ function drawNFA(nfa) {
     elements,
     style: [
       {
-        selector: 'edge[label = "*"]',
-        style: {
-          'curve-style': 'bezier',
-          'control-point-step-size': 40,
-          'color': '#58a6ff',
-          'text-background-color': '#0d1117',
-          'text-background-opacity': 1,
-          'line-color': '#8b949e',
-          'target-arrow-color': '#8b949e',
-          'font-weight': 'bold',
-          'font-size': '20px'
-        }
-      },
-
-      {
         selector: 'node',
         style: {
           'label': 'data(label)',
@@ -192,10 +177,13 @@ function drawNFA(nfa) {
         selector: 'edge',
         style: {
           'label': 'data(label)',
+          'width': 3,
           'color': '#58a6ff',
           'line-color': '#8b949e',
-          'target-arrow-color': '#8b949e',
+          'target-arrow-color': '#58a6ff',
           'target-arrow-shape': 'triangle',
+          'arrow-scale': 1.5,
+          'curve-style': 'bezier',
           'text-background-color': '#0d1117',
           'text-background-opacity': 1,
           'font-weight': 'bold',
