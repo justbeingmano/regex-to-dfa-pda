@@ -10,7 +10,7 @@ function newState() {
 function convert() {
   stateCount = 0; // reset for clean build
 
-  const regex = document.getElementById("regexInput").value;
+  const regexx = document.getElementById("regexInput").value;
 
   const tokens = tokenize(regex);            
   const withConcat = addConcat(tokens);       
