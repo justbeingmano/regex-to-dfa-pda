@@ -1,31 +1,31 @@
-// ===== GLOBAL STATE COUNTER =====
+
 let stateCount = 0;
 
-// ===== STATE CREATOR =====
+
 function newState() {
   return `q${stateCount++}`;
 }
 
-// ===== MAIN ENTRY =====
+
 function convert() {
-  stateCount = 0; // reset for clean build
+  stateCount = 0;
 
-  const regexx = document.getElementById("regexInput").value;
+  const regex = document.getElementById("regexInput").value;
 
-  const tokens = tokenize(regex);            
-  const withConcat = addConcat(tokens);       
-  const postfix = toPostfix(withConcat);      
-  const nfa = postfixToNFA(postfix);          
+  const tokens = tokenize(regex);
+  const withConcat = addConcat(tokens);
+  const postfix = toPostfix(withConcat);
+  const nfa = postfixToNFA(postfix);
 
-  drawNFA(nfa);                                
+  drawNFA(nfa);
 }
 
-// ===== TOKENIZE =====
+
 function tokenize(regex) {
   return regex.split("");
 }
 
-// ===== ADD CONCAT DOT =====
+
 function addConcat(tokens) {
   const result = [];
   const symbols = /[a-z0-9]/;
@@ -46,7 +46,7 @@ function addConcat(tokens) {
   return result;
 }
 
-// ===== INFIX → POSTFIX =====
+
 function toPostfix(tokens) {
   const output = [];
   const stack = [];
@@ -74,7 +74,7 @@ function toPostfix(tokens) {
   return output;
 }
 
-// ===== POSTFIX → NFA (THOMPSON) =====
+
 function postfixToNFA(postfix) {
   const stack = [];
 
@@ -126,7 +126,12 @@ function postfixToNFA(postfix) {
   return stack.pop();
 }
 
-// ===== VISUALIZATION =====
+
+
+
+
+
+
 function drawNFA(nfa) {
   const elements = [];
 
